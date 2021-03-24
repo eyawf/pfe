@@ -1,0 +1,57 @@
+
+<div class="container">
+  <div class="limiter"> 
+      <div class="logo">
+          <div class="row ">
+              <div class="col-sm-2">
+                  <img src="/assets/img/Tunisie-Telecom.png">
+              </div>
+              <div class="col-sm-8 text-center ">
+                  <span class="text">Tunisie Telecom</span><br>
+                  <span class="text pd">Mobile Tikiting</span>
+              </div>
+          </div>
+         
+      </div>
+      <div class="container-login100 col-1">
+          
+          <div class="wrap-login100 p-l-80 p-r-90 p-t-50 p-b-150">
+              
+             <form #frmLogin="ngForm" (ngSubmit)="onLogin(frmLogin)"  class="login100-forms validate-form form1" >
+                 <img src="/assets/img/logo.png" class="img rounded mx-auto d-block">
+                  <span class="login100-form-title ">
+                      Wamya
+                  </span>
+                  <div class="alert alert-danger" *ngIf="loggedIn==false"><p>Erreur de connexion !!</p></div>
+
+                  <div class="col">
+                      
+                     <div class="col-sm-9 float-left"> 
+                          <input type="text" id="username" name="email" class="text" autocomplete="off" placeholder="Email" ngModel required>
+                        
+                     </div>
+                     <div class="col-sm-4 ">
+
+                      <span class="btn-show-pass ">
+                          <i class="fa fa-eye p-r-65"></i>
+                      </span>
+                      <input type="password" name="password" id="pass" autocomplete="off" placeholder="Mot de passe" ngModel required>
+                     
+                      
+                    </div>
+                      <div class="col-sm-12  justify-content-center" id="btn">
+                          <button type="submit"   class="login100-form-btn">Connexion</button>
+                      </div>
+                 </div>
+                 
+                
+                 
+             </form>
+               <span class="oublier p-r-58">
+                    <a href="#" id="oublie">Mot de passe oubliée !</a>
+                    
+               </span>
+               </div>
+        </div>
+      </div>
+</div>
