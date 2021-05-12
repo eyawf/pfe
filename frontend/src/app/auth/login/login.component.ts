@@ -14,14 +14,22 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    if(this.authService.getToken!=null){
+      console.log(this.authService.getToken());
+     
+    }
   }
   loggedIn: Boolean;
   onLogin(form): void {
     
     this.authService.login(form.value).subscribe(res => {
-      this.loggedIn=true;
-      console.log(this.authService.logout);
-      this.router.navigateByUrl('/profile');
+      if(Number(res.dataUser.etat)==0){
+        this.router.navigateByUrl('/admin');
+      }else if(Number(res.dataUser.etat)==1){
+        this.router.navigateByUrl('/partenaire');
+      }else if(Number(res.dataUser.etat)==2){
+        this.router.navigateByUrl('/partenaire');
+      }
     });
 
     this.loggedIn=false;

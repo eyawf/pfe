@@ -1,22 +1,46 @@
 <div class="container">
-  <div class="login">
-    <div class="login-triangle"></div>
-
-    <h2 class="login-header">Create an account</h2>
-
-    <form #frmRegister="ngForm" class="login-container" (ngSubmit)="onRegister(frmRegister)">
-      <p>
-        <input type="text" name="name" placeholder="name" ngModel required>
-      </p>
-      <p>
-        <input type="email" name="email" placeholder="Email" ngModel required>
-      </p>
-      <p>
-        <input type="password" name="password" placeholder="Password" ngModel required>
-      </p>
-      <p>
-        <input type="submit" value="Register">
-      </p>
-    </form>
+  <div class="limiter"> 
+      <div class="logo">
+          <div class="row ">
+              <div class="col-sm-2">
+                  <img src="/assets/img/Tunisie-Telecom.png">
+              </div>
+              <div class="col-sm-8 text-center ">
+                  <span class="text">Tunisie Telecom</span><br>
+                  <span class="text pd">Mobile Tikiting</span>
+              </div>
+          </div>
+         
+      </div>
+      <div class="container-login100 col-1">
+          
+          <div class="wrap-register p-l-80 p-r-90 p-t-50 p-b-150">
+            <img src="/assets/img/logo.png" class="img rounded mx-auto d-block">
+                  <span class="login100-form-title ">
+                       Crée compte
+                  </span>
+                <form #frmRegister="ngForm" class="login-container" (ngSubmit)="onRegister(frmRegister)" class="login100-forms validate-form form1">
+                  <p>
+                    <input type="text" name="name" placeholder="name" ngModel required>
+                  </p>
+                  <p>
+                    <input type="email" name="email" placeholder="Email" ngModel required>
+                  </p>
+                  <p>
+                    <input type="password" name="password" placeholder="Password" ngModel required>
+                  </p>
+                  <p>
+                    <select name="etat" class="form-select" ngModel required>
+                      <option value="" selected>Type de compte</option>
+                        <option value=0>Admin</option>
+                        <option value=1>Partenaire</option>
+                        <option value=2>Utilisateur</option>
+                    </select>
+                  </p>
+                  <p>
+                    <button type="submit" class="login100-form-btn">Valider</button>
+                  </p>
+                </form>
   </div>
+</div>
 </div>

@@ -7,7 +7,8 @@ exports.createUser = (req, res, next) => {
   const newUser = {
     name: req.body.name,
     email: req.body.email,
-    password: bcrypt.hashSync(req.body.password)
+    password: bcrypt.hashSync(req.body.password),
+    etat: req.body.etat
   }
 
   User.create(newUser, (err, user) => {
@@ -22,7 +23,8 @@ exports.createUser = (req, res, next) => {
       name: user.name,
       email: user.email,
       accessToken: accessToken,
-      expiresIn: expiresIn
+      expiresIn: expiresIn,
+      etat: user.etat
     }
     // response 
     res.send({ dataUser });
@@ -32,15 +34,15 @@ exports.createUser = (req, res, next) => {
 exports.loginUser = (req, res, next) => {
   const userData = {
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
   }
   User.findOne({ email: userData.email }, (err, user) => {
     if (err) return res.status(500).send('Server error!');
-
     if (!user) {
       // email does not exist
       res.status(409).send({ message: 'Something is wrong' });
     } else {
+      
       const resultPassword = bcrypt.compareSync(userData.password, user.password);
       if (resultPassword) {
         const expiresIn = 24 * 60 * 60;
@@ -49,6 +51,7 @@ exports.loginUser = (req, res, next) => {
         const dataUser = {
           name: user.name,
           email: user.email,
+          etat: user.etat,
           accessToken: accessToken,
           expiresIn: expiresIn
         }

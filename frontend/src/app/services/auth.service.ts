@@ -19,6 +19,7 @@ export class AuthService {
         (res: JwtResponseI) => {
           if (res) {
             // guardar token
+            
             this.saveToken(res.dataUser.accessToken, res.dataUser.expiresIn);
           }
         })
@@ -49,7 +50,7 @@ export class AuthService {
     this.token = token;
   }
 
-  private getToken(): string {
+  public getToken(): string {
     if (!this.token) {
       this.token = localStorage.getItem("ACCESS_TOKEN");
     }
