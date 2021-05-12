@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import * as $ from "jquery";
@@ -10,8 +10,13 @@ import { UserI } from '../../models/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  @Input()
+  signInError :String;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { 
+
+    
+  }
 
   ngOnInit() {
     if(this.authService.getToken!=null){
@@ -28,14 +33,12 @@ export class LoginComponent implements OnInit {
       }else if(Number(res.dataUser.etat)==1){
         this.router.navigateByUrl('/partenaire');
       }else if(Number(res.dataUser.etat)==2){
-        this.router.navigateByUrl('/partenaire');
+        this.router.navigateByUrl('/user');
       }
     });
 
-    this.loggedIn=false;
-    console.log(this.loggedIn);
-    
-    this.router.navigateByUrl('/auth/login?error=login');
+    this.signInError="Erreur d'authentification !";
+    this.router.navigateByUrl('/auth/login');
   }
 
 }

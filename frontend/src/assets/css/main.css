@@ -1,6 +1,7 @@
 body{
     background: radial-gradient(circle, rgba(41,162,223,1) 0%, rgba(113,204,252,1) 100%);
 }
+
 .limiter {
 
     width: 100%;

@@ -2,3 +2,12 @@
 h1{
     font-size: 150pt;
 }
+.btn-create-account{
+    background-color: #29df75;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    width: 150px;
+    margin: 20px;
+    padding: 5px;
+}
