@@ -14,6 +14,13 @@ export class RegisterComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    if(localStorage.getItem("admin").length>0){
+      this.router.navigateByUrl('/admin');
+    }else if(localStorage.getItem("user").length>0){
+      this.router.navigateByUrl('/user');
+    }else if(localStorage.getItem("partenaire").length>0){
+      this.router.navigateByUrl('/partenaire');
+    }
   }
 
   onRegister(form): void {

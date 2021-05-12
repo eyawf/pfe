@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" >
     <div class="limiter">
         <div class="logo">
             <div class="row ">
@@ -22,7 +22,7 @@
                         Wamya
                     </span>
                     
-                    <p *ngIf="signInError && signInError.length > 0" class="error-message text-danger"> 
+                    <p *ngIf="loggedIn==false" class="error-message text-danger"> 
                         <i class="fas fa-exclamation-triangle"></i>
                        {{signInError}}
                      </p>

@@ -1,4 +1,4 @@
-<div class="body">
+<div class="body" *ngIf="PartenairelocalStorage">
 <div class="container">
   <div class="limiter"> 
       <div class="logo">
@@ -16,7 +16,10 @@
       <div class="container-login100 col-1">
           
           <div class="wrap-login100 p-l-80 p-r-90 p-t-50 p-b-150">
-              <h1>Welcome Partenaire</h1>
+              <h1>Welcome Partenaire {{name}}</h1>
+              <div class="col-sm-12  justify-content-center p-t-30 " id="bt">
+                <a type="button" href="/auth/logout" class="btn btn-success"  >Logout</a>
+            </div>
           </div>
         </div>
       </div>

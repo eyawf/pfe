@@ -8,9 +8,24 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private router: Router) { }
+  AdminlocalStorage:Boolean;
+  PartenairelocalStorage:Boolean;
+  UserlocalStorage:Boolean;
+  name:String;
   ngOnInit() {
+    if(!localStorage.getItem('admin')){
+       this.AdminlocalStorage=false;
+        this.PartenairelocalStorage=false;
+        this.UserlocalStorage=false;
+      this.router.navigateByUrl('/auth/login');
+    }else{
+      this.name=localStorage.getItem('name');
+      this.AdminlocalStorage=true;
+        this.PartenairelocalStorage=false;
+        this.UserlocalStorage=false;
+    }
+    console.log(this.AdminlocalStorage);
   }
 
 }

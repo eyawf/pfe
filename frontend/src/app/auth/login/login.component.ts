@@ -11,34 +11,60 @@ import { UserI } from '../../models/user';
 })
 export class LoginComponent implements OnInit {
   @Input()
-  signInError :String;
-
+  signInError :String="Erreur d'authentification !";
+  AdminlocalStorage:Boolean;
+  PartenairelocalStorage:Boolean;
+  UserlocalStorage:Boolean;
   constructor(private authService: AuthService, private router: Router) { 
 
     
   }
 
   ngOnInit() {
-    if(this.authService.getToken!=null){
-      console.log(this.authService.getToken());
-     
+    this.AdminlocalStorage=false;
+    if(localStorage.getItem("admin").length>0){
+      this.router.navigateByUrl('/admin');
+    }else if(localStorage.getItem("user").length>0){
+      this.router.navigateByUrl('/user');
+    }else if(localStorage.getItem("partenaire").length>0){
+      this.router.navigateByUrl('/partenaire');
     }
   }
   loggedIn: Boolean;
+
   onLogin(form): void {
-    
+   
     this.authService.login(form.value).subscribe(res => {
+      
       if(Number(res.dataUser.etat)==0){
+        localStorage.setItem('admin',res.dataUser.email);
+        localStorage.setItem('name',res.dataUser.name);
+        this.AdminlocalStorage=true;
+        this.PartenairelocalStorage=false;
+        this.UserlocalStorage=false;
         this.router.navigateByUrl('/admin');
       }else if(Number(res.dataUser.etat)==1){
+        localStorage.setItem('partenaire','true');
+        localStorage.setItem('name',res.dataUser.name);
+        this.AdminlocalStorage=true;
+        this.PartenairelocalStorage=false;
+        this.UserlocalStorage=false;
         this.router.navigateByUrl('/partenaire');
       }else if(Number(res.dataUser.etat)==2){
+        localStorage.setItem('user','true');
+        localStorage.setItem('name',res.dataUser.name);
+        this.AdminlocalStorage=true;
+        this.PartenairelocalStorage=false;
+        this.UserlocalStorage=false;
         this.router.navigateByUrl('/user');
+      }else{
+        this.signInError="Erreur d'authentification !";
+        
       }
+      
     });
-
-    this.signInError="Erreur d'authentification !";
-    this.router.navigateByUrl('/auth/login');
+      this.loggedIn=false;
+  
   }
 
 }
