@@ -16,7 +16,7 @@
   
             <div class="wrap-register p-l-80 p-r-90 p-t-50 p-b-150">
   
-               <form #frmLogin="ngForm" (ngSubmit)="onLogin(frmLogin)"  class="login100-forms validate-form form1" >
+               <form #frmLogin="ngForm" (ngSubmit)="onLogin(frmLogin)"  class="login100-forms validate-form form1" id="formid" >
                    <img src="/assets/img/logo.png" class="img rounded mx-auto d-block">
                     <span class="login100-form-title ">
                         Wamya
@@ -42,18 +42,42 @@
   
                       </div>
                         <div class="col-sm-12  justify-content-center" id="btn">
-                            <button type="submit"   class="login100-form-btn">Connexion</button>
+                            <button id="submit" type="submit"   class="login100-form-btn">Connexion</button>
                         </div>
                    </div>
   
   
   
                </form>
+               <form   autocomplete="off" class="login100-forms validate-form resetPassword" action="#"  >
+                <i class="fa fa-lock fa-6x text-black mx-auto d-block"></i><br>
+                 <span class="login100-form-title-reset ">
+                    Mot de passe oubliée
+                 </span>
+                 <div class="col p-t-10">
+                     
+                    <div class="col-sm-9 float-left "> 
+                         <input type="email" id="email"  name="email" class="text" autocomplete="off" placeholder="Email" onkeypress="focus()">
+                        
+                    </div>
+                    
+                     <div class="col-sm-12  justify-content-center" id="btn">
+                         <button type="submit"  class="login100-form-btn">Envoyer</button>
+                     </div>
+                </div>
+                
+               
+                
+            </form>
+            <span class="loginPage p-r-55">
+                <a  id="loginPage">S'authentifier</a>
+                
+           </span>
                  <span class="oublier p-r-55">
-                      <a href="#" id="oublie">Mot de passe oublié ?</a>
+                      <a  id="oublie">Mot de passe oublié ?</a>
   
                  </span>
-  
+                
                  <div class="col-sm-12  justify-content-center p-t-30 " id="bt">
                   <button  type="submit" class="btn-create-account" routerLink="/auth/register" routerLinkActive="active" >Créer compte</button>
               </div>
