@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './profile/admin/admin.component';
 import { PartenaireComponent } from './profile/partenaire/partenaire.component';
 import { UserComponent } from './profile/user/user.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { UserComponent } from './profile/user/user.component';
     
     AdminComponent,
     PartenaireComponent,
-    UserComponent
+    UserComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
