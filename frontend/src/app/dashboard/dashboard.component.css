@@ -1,0 +1,19 @@
+.example-container {
+  width: 400px;
+  height: 200px;
+  margin: 10px;
+  border: 1px solid #555;
+}
+mat-drawer{
+  background-color: black;
+}
+
+.body{
+  
+  position:fixed; 
+  margin-top: auto;
+  margin-bottom: auto;
+  left: 0px;
+  width: 100%;
+    z-index: -9;
+}

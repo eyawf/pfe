@@ -6,7 +6,17 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './profile/admin/admin.component';
 import { PartenaireComponent } from './profile/partenaire/partenaire.component';
 import { UserComponent } from './profile/user/user.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatListModule} from '@angular/material';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { SidabarComponent } from './sidabar/sidabar.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { CardsComponent } from './cards/cards.component';
 
 
 @NgModule({
@@ -16,11 +26,25 @@ import { NavbarComponent } from './navbar/navbar.component';
     AdminComponent,
     PartenaireComponent,
     UserComponent,
-    NavbarComponent
+    DashboardComponent,
+    SidabarComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSliderModule,
+    NoopAnimationsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatGridListModule,
+    MatSidenavModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
