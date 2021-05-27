@@ -1,0 +1,28 @@
+
+  <!-- Main-body start -->
+  <div class="main-body">
+    <div class="page-wrapper">
+    <!-- Page-body start -->
+    <!-- <h3>Liste Utilisateurs</h3> -->
+      <div class="page-body">
+        <div class="row">
+          <!-- task, page, download counter  start -->
+            <div class="col-xl-12 col-md-12">
+              <div class="row container-fluid">
+                <div class="col-md-12">
+                  <h4>List Utilisateurs</h4>
+                  <div *ngIf="errorMessage" class="alert alert-danger">
+                    {{errorMessage}}
+                  </div>
+                  <ul class="list-group">
+                    <li *ngFor="let user of users" >{{ user.name }}  - {{ user.email }}  - {{ user.etat }}</li>
+                  </ul>
+                </div>
+              </div>
+
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

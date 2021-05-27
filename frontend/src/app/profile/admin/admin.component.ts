@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -8,7 +11,12 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches)
+    );
+
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router) { }
   AdminlocalStorage:Boolean;
   PartenairelocalStorage:Boolean;
   UserlocalStorage:Boolean;

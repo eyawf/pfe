@@ -1,2 +1,78 @@
 
-<router-outlet></router-outlet>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="!(isHandset$ | async)">
+      <mat-toolbar><div class="col-sm-2">
+        <img src="/assets/img/Tunisie-Telecom.png" height="50px">
+    </div>
+    <div class="col-sm-8 text-center ">
+        <span class="text">Tunisie Telecom</span><br>
+        <span class="text pd">Mobile Tikiting</span>
+    </div></mat-toolbar>
+      <span class="example-spacer"></span>
+      <mat-nav-list>
+
+        <a mat-list-item href="/">Dashboard</a>
+
+        <a mat-list-item [routerLink] = "['ListeUser']">Liste User</a>
+        <a mat-list-item href="#">Link 2</a>
+        <a mat-list-item href="#">Link 3</a>
+        <a mat-list-item href="/auth/logout">Logout</a>
+        <!-- <a type="button" href="/auth/logout" class="btn btn-success"  >Logout</a> -->
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span><h4>Welcome Admin </h4></span>
+      </mat-toolbar>
+      <!-- Add Content Here -->
+
+      <router-outlet></router-outlet>
+
+
+
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+
+<!-- <div class="body" *ngIf="AdminlocalStorage">
+<div class="container">
+  <div class="limiter">
+      <div class="logo">
+          <div class="row ">
+              <div class="col-sm-2">
+                  <img src="/assets/img/Tunisie-Telecom.png">
+              </div>
+              <div class="col-sm-8 text-center ">
+                  <span class="text">Tunisie Telecom</span><br>
+                  <span class="text pd">Mobile Tikiting</span>
+              </div>
+          </div>
+
+      </div>
+      <div class="container-login100 col-1">
+
+          <div class="wrap-login100 p-l-80 p-r-90 p-t-50 p-b-150">
+              <h1>Welcome Admin {{name}}</h1><br><br>
+              <div class="col-sm-12  justify-content-center p-t-30 " id="bt">
+                <a type="button" href="/auth/logout" class="btn btn-success"  >Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div> -->
+
+

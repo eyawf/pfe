@@ -17,18 +17,21 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { SidabarComponent } from './sidabar/sidabar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { CardsComponent } from './cards/cards.component';
+import { ListeUserComponent } from './users/liste-user/liste-user.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    
+
     AdminComponent,
     PartenaireComponent,
     UserComponent,
     DashboardComponent,
     SidabarComponent,
-    CardsComponent
+    CardsComponent,
+    ListeUserComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { CardsComponent } from './cards/cards.component';
     LayoutModule,
     MatToolbarModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
